@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <div>
-      <h2>Sebuah contoh komponen header</h2>
+      <h2>Sebuah contoh komponen header seperti ini</h2>
     </div>
   );
 };
