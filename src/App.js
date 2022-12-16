@@ -2,20 +2,25 @@ import { useState } from "react";
 import Header from "./components/Header";
 
 function App() {
-  const [title, setTitle] = useState("Welcome to My App");
-  const [age, setAge] = useState(20);
-
-  const changeTitle = () => {
-    setTitle("Title changed");
-    setAge(40);
-  };
+  const [products, setProducts] = useState([
+    { id: 1, nama: "sarung", harga: 20000 },
+    { id: 2, nama: "sepatu", harga: 40000 },
+    { id: 3, nama: "sandal", harga: 9000 },
+    { id: 4, nama: "sarden", harga: 10000 },
+    { id: 5, nama: "syal", harga: 50000 },
+    { id: 6, nama: "serbet", harga: 1000 },
+  ]);
 
   return (
     <div>
       <Header />
-      <h1>{title}</h1>
-      <h1>Age: {age} </h1>
-      <button onClick={changeTitle}>Change title</button>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.nama} - {product.harga}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
