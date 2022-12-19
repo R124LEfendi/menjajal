@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import productList from "./components/productList";
 
 function App() {
-  const [product, setProduct] = useState([
+  const [products, setProducts] = useState([
     { id: 1, nama: "sarung", harga: 20000 },
     { id: 2, nama: "sepatu", harga: 40000 },
     { id: 3, nama: "sandal", harga: 9000 },
@@ -15,7 +14,13 @@ function App() {
   return (
     <div>
       <Header />
-      <productList product={product} />
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.nama} - {product.harga}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
