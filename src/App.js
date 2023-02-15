@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
+import ProductList from "./components/ProductList";
 
 function App() {
   const [products, setProducts] = useState([
@@ -11,16 +12,23 @@ function App() {
     { id: 6, nama: "serbet", harga: 1000 },
   ]);
 
+  const deleteProduct = (productId) => {
+    const newProduct = products.filter((product) => product.id !== productId);
+    setProducts(newProduct);
+  };
+
+  const [name, setName] = useState("Rizal");
+
+  useEffect(() => {
+    console.log("Use effect running");
+  }, [name]);
+
   return (
     <div>
       <Header />
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.nama} - {product.harga}
-          </li>
-        ))}
-      </ul>
+      <ProductList products={products} deleteProduct={deleteProduct} />
+      <button onClick={() => setName("Efendi")}>Change Name</button>
+      <p>{name}</p>
     </div>
   );
 }
