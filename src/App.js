@@ -27,7 +27,7 @@ function App() {
     <div>
       <Header />
       <ProductList products={products} deleteProduct={deleteProduct} />
-      <button onClick={() => setName("Efendi")}>Change Name</button>
+      <button onClick={() => setName("Efendi")}>Change</button>
       <p>{name}</p>
     </div>
   );
