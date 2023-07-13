@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProductList from "./components/ProductList";
+import CrudApp from "./CrudApp";
 
 function App() {
   const [products, setProducts] = useState([
@@ -43,7 +44,12 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <div>
+      <RouterProvider router={router} />
+      <CrudApp />
+    </div>
+  );
 }
 
 export default App;
